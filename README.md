@@ -1,1 +1,1 @@
-# Insert 1 million data to MySQL using Worker Pool with GORM
+# Insert Data from CSV to MySQL using Worker Pool with GORM
