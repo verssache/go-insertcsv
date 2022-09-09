@@ -36,10 +36,10 @@ func main() {
 	}
 
 	jobs := make(chan []interface{})
-	wg := new(sync.WaitGroup)
+	var wg sync.WaitGroup
 
-	go dispatchWorkers(db, jobs, wg)
-	readCsvFilePerLineThenSendToWorker(db, reader, jobs, wg)
+	dispatchWorkers(db, jobs, &wg)
+	readCsvFilePerLineThenSendToWorker(db, reader, jobs, &wg)
 
 	wg.Wait()
 	file.Close()
